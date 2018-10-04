@@ -1,0 +1,45 @@
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.*;
+import java.text.NumberFormat;
+import java.util.Scanner;
+
+public class JavaPractice{
+
+	public static void main(String []args){
+		//create array list
+		ArrayList<String> names = new ArrayList<>();
+		
+		//record system time in nano seconds
+		long start = System.nanoTime();
+		System.out.println("Please enter a name. Type 'exit' to leave program");
+		
+		//start scanner input
+		Scanner scan= new Scanner(System.in);
+
+		while(scan.hasNext()) {
+			String text= scan.nextLine();
+
+			if(text.equals("exit"))
+			{
+				break;
+			}
+			names.add(text);
+		}
+		
+		//close scanner
+		scan.close();
+	
+		//elapsed time calulation
+		long finish = System.nanoTime();
+
+		long timeElapsed = finish - start;
+
+		
+		//printing
+		System.out.println( NumberFormat.getInstance().format(timeElapsed) +" nano seconds elapsed.");
+
+		System.out.println(names.get(names.size() -1));
+		System.out.println(names);
+	}
+}
